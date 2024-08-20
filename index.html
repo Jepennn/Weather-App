@@ -3,27 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <script type="module" src="script.js" defer></script>
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module" src="cordinates.js" defer></script>
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
     />
-    <title>Wheather App</title></head
-  >£
+    <title>Wheather App</title>
+  </head>
   <body>
+    <p id="weather-date">date</p>
     <div class="container">
-      <div class="search-box">
-        <input
-          type="text"
-          class="search-bar"
-          placeholder="Search for a city..."
-        />
-      </div>
       <div class="weather-box-information">
         <div class="location">
           <span class="material-symbols-outlined">explore</span>
-          <img class="icon" src="" alt="" />
+          <!-- <img class="icon" src="" alt="" /> -->
           <p id="city">City name</p>
         </div>
         <div class="day"></div>
@@ -33,6 +27,13 @@
       <div class="image-of-weather">
         <img src="" alt="" />
       </div>
+    </div>
+    <div class="search-box">
+      <input
+        type="text"
+        class="search-bar"
+        placeholder="Search for a city..."
+      />
     </div>
   </body>
 </html>
