@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
     <script type="module" src="cordinates.js" defer></script>
+    <script src="script.js" defer></script>
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
@@ -12,20 +13,22 @@
     <title>Wheather App</title>
   </head>
   <body>
-    <p id="weather-date">date</p>
+    <p id="date">date</p>
     <div class="container">
       <div class="weather-box-information">
         <div class="location">
-          <span class="material-symbols-outlined">explore</span>
-          <!-- <img class="icon" src="" alt="" /> -->
-          <p id="city">City name</p>
+          <span class="material-symbols-outlined"> location_on </span>
+          <p id="city">Paris, France</p>
         </div>
-        <div class="day"></div>
-        <div class="temperature"></div>
-        <div class="UV"></div>
-      </div>
-      <div class="image-of-weather">
-        <img src="" alt="" />
+        <div id="forecast-title">
+          <p>Weather</p>
+          <h1>FORECAST</h1>
+        </div>
+        <div class="image-of-weather">
+          <img src="" alt="" />
+        </div>
+        <h1 id="temperature">28</h1>
+        <div id="uv">4</div>
       </div>
     </div>
     <div class="search-box">
