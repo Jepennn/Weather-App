@@ -1,0 +1,29 @@
+# OS-specifika filer
+.DS_Store
+Thumbs.db
+
+# Miljövariabler
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Node-moduler
+node_modules
+
+# Loggfiler
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Byggartefakter
+dist/
+build/
+
+# IDE-specifika filer
+.vscode/
+.idea/
+
+# Testresultat
+coverage/

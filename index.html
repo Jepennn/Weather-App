@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="cordinates.js" defer></script>
     <script type="module" src="ApiCalls.js"></script>
     <script type="module" src="script.js" defer></script>
     <link
@@ -19,7 +18,7 @@
       <div class="weather-box-information">
         <div class="location">
           <span class="material-symbols-outlined"> location_on </span>
-          <p id="city">Paris, France</p>
+          <p id="city">E</p>
         </div>
         <div id="forecast-title">
           <p>Weather</p>
@@ -30,12 +29,18 @@
           <!-- <p id="weather-description">Cloudy</p> -->
         </div>
         <div class="temperature-details">
-          <h1 id="temperature">28°</h1>
-          <p id="uv-index">UV-index: 4 max: 7</p>
+          <h1 id="temperature">E</h1>
+          <p id="uv-index">E</p>
         </div>
       </div>
+      <form id="search-form">
+        <input
+          type="text"
+          id="search-input"
+          placeholder="Search for a city..."
+        />
+        <input type="submit" id="search-button" value="Search" />
+      </form>
     </div>
-    <input type="text" id="search-input" placeholder="Search for a city..." />
-    <input type="submit" id="search-button" value="Search"></input>
   </body>
 </html>

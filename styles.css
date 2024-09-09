@@ -13,8 +13,7 @@ body {
   font-family: "Roboto", sans-serif;
 
   /*Setting image as background*/
-  background-image: url("../Images/sky.jpg");
-  background-color: rgba(0, 219, 219, 0.751);
+  background-image: url("../Images/sky2.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   width: 100vw;
@@ -28,14 +27,18 @@ body {
 
 #date {
   width: 85%;
+  max-width: 375px;
+  max-height: 700px;
   padding: 10px;
-
   text-align: right;
   font-size: 0.8rem;
 }
 .container {
   width: 85%;
   height: 65%;
+
+  max-width: 375px;
+  max-height: 700px;
 
   border: 2px solid rgb(255, 255, 255);
   border-radius: 20px;
@@ -56,32 +59,61 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 40px;
+  margin: 20px;
   font-size: 1.2rem;
 }
 .image-of-weather {
-  width: 100%;
-  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.image-of-weather img {
+  width: 110px;
+  height: 110px;
 }
 .temperature-details {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
+}
+#weather-description {
+  font-size: 0.8rem;
+  margin: 5px;
 }
 #temperature {
-  padding-left: 23px;
-  font-size: 3.5rem;
+  margin-top: 5px;
+  font-size: 4rem;
 }
 #uv-index {
   font-size: 0.7rem;
 }
 
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+
 input[type="text"] {
   padding: 8px;
-  margin: 50px;
+  margin-right: 5px;
   border-radius: 10px;
   border: 1px solid rgb(255, 255, 255);
   background-color: rgba(255, 255, 255, 0.1);
   color: var(--text-color);
+  color: rgba(255, 255, 255, 0.5);
+}
+
+input[type="submit"] {
+  padding: 8px;
+  margin-left: 5px;
+  border-radius: 10px;
+  border: 1px solid rgb(255, 255, 255);
+  color: grey;
+  background-color: rgba(255, 255, 255, 0.1);
+  cursor: pointer;
 }
