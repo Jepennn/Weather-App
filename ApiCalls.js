@@ -7,6 +7,12 @@ async function geoAPI(place) {
   const apiKey = process.env.NEXT_PUBLIC_OPENWEATHER_API_KEY;
   const url = `http://api.openweathermap.org/geo/1.0/direct?q=${place}&limit=1&appid=${apiKey}`;
 
+  console.log(
+    "OpenWeather API Key:",
+    process.env.NEXT_PUBLIC_OPENWEATHER_API_KEY
+  );
+  console.log("OpenUV API Key:", process.env.NEXT_PUBLIC_OPENUV_API_KEY);
+
   const response = await fetch(url);
   const data = await response.json();
 
