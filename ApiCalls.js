@@ -1,6 +1,6 @@
 // Purpose: This file contains the functions that fetch the data from the APIs.
-import dotenv from "dotenv";
-dotenv.config();
+// import dotenv from "dotenv";
+// dotenv.config();
 
 /*----------------------geoAPI starts here----------------------*/
 async function geoAPI(place) {
