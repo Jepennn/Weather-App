@@ -2,7 +2,7 @@
 
 /*----------------------geoAPI starts here----------------------*/
 async function geoAPI(place) {
-  const apiKey = process.env.NEXT_PUBLIC_OPENWEATHER_API_KEY;
+  const apiKey = "your-api-key";
   const url = `http://api.openweathermap.org/geo/1.0/direct?q=${place}&limit=1&appid=${apiKey}`;
 
   const response = await fetch(url);
@@ -18,7 +18,7 @@ async function geoAPI(place) {
 
 /*-------------------Function that fetches the UV index data from the OpennUV.io API------------------------------*/
 async function getUvIndex(place) {
-  const apiKey = process.env.NEXT_PUBLIC_OPENUV_API_KEY;
+  const apiKey = "your-api-key";
 
   //Fetching the cordinates from the geoAPI
   const { lat, lon } = await geoAPI(place);
@@ -55,16 +55,10 @@ async function getUvIndex(place) {
 
 /*----------------------Function that fetches the weather data from openWeather API.--------------------*/
 async function getWeatherDetails(place) {
-  const apiKey = process.env.NEXT_PUBLIC_OPENWEATHER_API_KEY;
+  const apiKey = "your-api-key";
 
   //Fetching the cordinates from the geoAPI
   const { lat, lon } = await geoAPI(place);
-
-  console.log(
-    "OpenWeather API Key:",
-    process.env.NEXT_PUBLIC_OPENWEATHER_API_KEY
-  );
-  console.log("OpenUV API Key:", process.env.NEXT_PUBLIC_OPENUV_API_KEY);
 
   // Fetching the data from the API
   const response = await fetch(
