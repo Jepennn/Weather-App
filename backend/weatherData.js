@@ -1,5 +1,6 @@
 import axios from "axios";
 import dotenv from "dotenv";
+import e from "express";
 
 dotenv.config();
 
@@ -38,3 +39,4 @@ const getWeatherData = async (place) => {
 };
 
 export { getWeatherData };
+export { getCordinates };
