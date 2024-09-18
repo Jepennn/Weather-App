@@ -1,5 +1,4 @@
 import { getWeatherDetails } from "./ApiCalls.js";
-import { getUvIndex } from "./ApiCalls.js";
 
 /*------------------------------Setting date top right corner----------------------------*/
 const monthNames = [
@@ -27,7 +26,6 @@ document.getElementById("date").innerText = date;
 
 /*-------------------------------Starting to show stockholms weather as defualt------------------------------*/
 presentWeather("Stockholm");
-presentUvIndex("Stockholm");
 
 /*----------------------------------Setting up serch functions--------------------------------------------*/
 const searchInput = document.getElementById("search-input");
@@ -39,12 +37,12 @@ searchForm.addEventListener("submit", (e) => {
   const inputData = capitalizeFirstLetter(searchInput.value).trim();
 
   presentWeather(inputData);
-  presentUvIndex(inputData);
   clearSearchInput();
 });
 
 /*--------------------------------Setting temperatur details------------------------------------------------*/
 function presentWeather(place = "Stockholm") {
+  const uvIndex = document.getElementById("uv-index");
   const temp = document.getElementById("temperature");
   const city = document.getElementById("city");
   const icon = document.getElementById("weather-icon");
@@ -52,6 +50,7 @@ function presentWeather(place = "Stockholm") {
 
   getWeatherDetails(place)
     .then((data) => {
+      uvIndex.innerText = `UV Index: ${data.uvIndex}, max: ${data.uvMax}`;
       temp.innerText = `${data.temp}°`;
       city.innerText = `${data.country}, ${data.city}`;
       icon.setAttribute(
@@ -62,25 +61,11 @@ function presentWeather(place = "Stockholm") {
     .catch((error) => {
       temp.innerText = "Error";
       city.innerText = "Not found";
-      console.log("Something bad happend", error);
-    });
-}
-/*------------------------Setting weather details ends here--------------------------*/
-
-/*-----------------------------Setting UV index details----------------------------*/
-function presentUvIndex(place = "Stockholm") {
-  const uvIndex = document.getElementById("uv-index");
-
-  getUvIndex(place)
-    .then((data) => {
-      uvIndex.innerText = `UV Index: ${data.uvIndex}, max: ${data.uvMax}`;
-    })
-    .catch((error) => {
       uvIndex.innerText = "UV Index: Can't find any data";
       console.log("Something bad happend", error);
     });
 }
-/*------------------------------------Setting UV index details ends here---------------------------------*/
+/*------------------------Setting weather details ends here--------------------------*/
 
 /*--------------------------------------Some small help functions---------------------------------------*/
 function clearSearchInput() {
