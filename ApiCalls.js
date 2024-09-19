@@ -1,84 +1,33 @@
-// Purpose: This file contains the functions that fetch the data from the APIs.
+// Description: This file contains the functions that fetch data from the backend.
 
-/*----------------------geoAPI starts here----------------------*/
-async function geoAPI(place) {
-  const apiKey = "your-api-key";
-  const url = `http://api.openweathermap.org/geo/1.0/direct?q=${place}&limit=1&appid=${apiKey}`;
-
-  const response = await fetch(url);
-  const data = await response.json();
-
-  //Washing the data
-  return {
-    lat: data[0].lat,
-    lon: data[0].lon,
-  };
-}
-/*----------------------geoAPI ends here----------------------*/
-
-/*-------------------Function that fetches the UV index data from the OpennUV.io API------------------------------*/
-async function getUvIndex(place) {
-  const apiKey = "your-api-key";
-
-  //Fetching the cordinates from the geoAPI
-  const { lat, lon } = await geoAPI(place);
-
-  //Preparing the headers for the request
-  const myHeaders = new Headers();
-  myHeaders.append("x-access-token", apiKey);
-  myHeaders.append("Content-Type", "application/json");
-
-  const requestOptions = {
-    method: "GET",
-    headers: myHeaders,
-    redirect: "follow",
-  };
-
-  // Fetching the data from the API
-  const response = await fetch(
-    `https://api.openuv.io/api/v1/uv?lat=${lat}&lng=${lon}`,
-    requestOptions
-  );
-
-  //Parsing the data
-  const data = await response.json();
-
-  //washing the data
-  const uvIndexData = {
-    uvIndex: data.result.uv.toFixed(1),
-    uvMax: data.result.uv_max.toFixed(1),
-  };
-  return uvIndexData;
-}
-
-/*--------------------------------------------------------------------------*/
-
-/*----------------------Function that fetches the weather data from openWeather API.--------------------*/
+/*--------------------------------------Fetching data from backend----------------------------------------*/
 async function getWeatherDetails(place) {
-  const apiKey = "your-api-key";
+  try {
+    const response = await fetch(`http://localhost:5001/api/weather/${place}`);
+    if (!response.ok) {
+      throw new Error("Failed to fetch data from the backend");
+    }
 
-  //Fetching the cordinates from the geoAPI
-  const { lat, lon } = await geoAPI(place);
+    const data = await response.json();
 
-  // Fetching the data from the API
-  const response = await fetch(
-    `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`
-  );
-  const data = await response.json();
-
-  //Washing the data
-  const weatherDetails = {
-    city: data.name,
-    country: data.sys.country,
-    temp: data.main.temp.toFixed(0),
-    weatherDescription: data.weather[0].description,
-    icon: data.weather[0].icon,
-  };
-  return weatherDetails;
+    //Washing the data
+    const weatherDetails = {
+      city: data.city,
+      country: data.country,
+      temp: data.temperature.toFixed(0),
+      weatherDescription: data.description,
+      icon: data.icon,
+      uvIndex: data.uvIndex,
+      uvMax: data.uvMax,
+    };
+    return weatherDetails;
+  } catch (error) {
+    console.error("Failed to fetch weather details:", error);
+  }
 }
+/*--------------------------------------Fetching data from backend ends here----------------------------------------*/
 
-/*-----------------------------------------------------------------------------------*/
+getWeatherDetails("Stockholm");
 
 /*-----------------exporting api functions------------------ */
 export { getWeatherDetails };
-export { getUvIndex };
