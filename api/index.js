@@ -8,7 +8,6 @@ import { getWeatherData } from "./weatherData.js";
 import { getUvIndex } from "./uvData.js";
 
 const app = express();
-const PORT = process.env.PORT || 5001;
 
 //Middleware to allow cross-origin requests from the frontend
 app.use(cors());
@@ -32,6 +31,7 @@ app.get("/api/weather/:place", async (req, res) => {
   }
 });
 
+const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => {
   console.log("Server started at http://localhost:" + PORT);
 });

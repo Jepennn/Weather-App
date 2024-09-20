@@ -3,7 +3,9 @@
 /*--------------------------------------Fetching data from backend----------------------------------------*/
 async function getWeatherDetails(place) {
   try {
-    const response = await fetch(`http://localhost:5001/api/weather/${place}`);
+    const response = await fetch(
+      `https://backend-three-steel.vercel.app/api/weather/${place}`
+    );
     if (!response.ok) {
       throw new Error("Failed to fetch data from the backend");
     }

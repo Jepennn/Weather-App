@@ -1,6 +1,6 @@
 import axios from "axios";
 import dotenv from "dotenv";
-import e from "express";
+import express from "express";
 
 dotenv.config();
 
