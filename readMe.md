@@ -1,9 +1,10 @@
-# Weather App
+# 🌦️ Weather App
 
-This is a simple weather application that fetches weather data from the OpenWeatherMap API.
+Detta är en enkel väderapplikation som hämtar väderdata från en egen backend som i sin tur använder OpenWeatherMap API:t.
 
-## Features
+## Funktioner
+- Sök efter en stad för att få aktuell väderinformation
+- Visar temperatur, UV-index och väderförhållanden i form av en bild
 
-- Search for a city to get current weather information
-- Displays temperature, UV index, and weather conditions
-- Background image changes based on the weather
+### Testa Applikationen via länken nedan
+  https://jepennn.github.io/weather-app-frontend/
